@@ -5,10 +5,10 @@ import { getUrlContent } from "./tasks/task1/task1.js";
 import { conversationWithAgent } from "./tasks/task2/task2.js";
 import { convertJsonFile } from "./tasks/task3/taks3.js";
 import { openai } from "./utils/openai.js";
-dotenv.config();
+
 const app = express();
 app.use(express.json());
-
+dotenv.config();
 const port = 3000;
 
 app.get("/", (req, res) => {
