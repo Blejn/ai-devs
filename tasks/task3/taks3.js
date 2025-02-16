@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export const convertJsonFile = async (req, res) => {
   const jsonFile = await getJsonFile();
   const convertedJsonFile = await convertJsonFile(jsonFile);
@@ -6,9 +10,9 @@ export const convertJsonFile = async (req, res) => {
 
 const getJsonFile = async () => {
   const responseJsonFile = await fetch(
-    "https://centrala.ag3nts.org/data/5e8cc6c9-8828-4d19-9bd3-83fdbc189/json.txt"
+    `${process.env.API_URL}/data/${process.env.API_KEY}/json.txt`
   );
-  const jsonFile = await responseJsonFile.json();
+  const jsonFile = await responseJsonFile.text();
   console.log(jsonFile);
   return jsonFile;
 };

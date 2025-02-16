@@ -1,10 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import https from "https";
 import { getUrlContent } from "./tasks/task1/task1.js";
 import { conversationWithAgent } from "./tasks/task2/task2.js";
 import { convertJsonFile } from "./tasks/task3/taks3.js";
-import { openai } from "./utils/openai.js";
 
 const app = express();
 app.use(express.json());
@@ -15,7 +13,7 @@ app.get("/", (req, res) => {
   console.log("Hello World!");
   res.send("Hello World!");
 });
-
+/*
 app.post("/openai", async (req, res) => {
   try {
     const response = await openai.chat.completions.create({
@@ -102,6 +100,7 @@ app.post("/send-tokens", async (req, res) => {
     res.status(500).send("Failed to fetch data");
   }
 });
+*/
 
 //TASK 1 ------------------------------------------------------------
 app.post("/get-url-content", getUrlContent);
