@@ -1,6 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import { getUrlContent } from "./tasks/task1/task1.js";
 import { conversationWithAgent } from "./tasks/task2/task2.js";
 import { convertJsonFile } from "./tasks/task3/taks3.js";
 
@@ -103,7 +102,7 @@ app.post("/send-tokens", async (req, res) => {
 */
 
 //TASK 1 ------------------------------------------------------------
-app.post("/get-url-content", getUrlContent);
+//app.post("/get-url-content", getUrlContent);
 //END-TASK 1 ------------------------------------------------------------
 
 //TASK 2 ------------------------------------------------------------
