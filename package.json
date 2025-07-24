@@ -18,7 +18,8 @@
     "express": "^4.21.1",
     "i": "^0.3.7",
     "npm": "^10.9.2",
-    "openai": "^4.78.1"
+    "openai": "^4.78.1",
+    "sharp": "^0.34.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

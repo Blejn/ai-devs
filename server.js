@@ -2,7 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import { conversationWithAgent } from "./tasks/task2/task2.js";
 import { convertJsonFile } from "./tasks/task3/taks3.js";
-
+import { censorship } from "./tasks/task5/task5.js";
+import { getFiles } from "./tasks/task6/task6.js";
+import { getCityName } from "./tasks/task7/task7.js";
+import { sendReport } from "./tasks/task8/task8.js";
 const app = express();
 app.use(express.json());
 dotenv.config();
@@ -112,6 +115,37 @@ app.post("/conversation-with-agent", conversationWithAgent);
 //TASK 3 ------------------------------------------------------------
 app.post("/convertJsonFile", convertJsonFile);
 //END-TASK 3 ------------------------------------------------------------
+
+//TASK 5 ------------------------------------------------------------
+app.post("/censorship", censorship);
+//END-TASK 5 ------------------------------------------------------------
+
+//TASK 6 ------------------------------------------------------------
+app.post("/get-files", (req, res) => {
+  res.json({ status: "processing", message: "Transkrypcja w toku..." });
+  getFiles().then((result) => {
+    console.log("Transkrypcja zakończona:", result);
+  });
+});
+//END-TASK 6 ------------------------------------------------------------
+
+//TASK 7 ------------------------------------------------------------
+app.get("/get-city", (req, res) => {
+  res.json({ status: "processing", message: "Interpretacja w toku..." });
+  getCityName().then((result) => {
+    console.log("Interpretacja zakończona:", result);
+  });
+});
+//END-TASK 7 ------------------------------------------------------------
+
+//TASK 8 ------------------------------------------------------------
+app.get("/robotid", (req, res) => {
+  res.json({ status: "processing", message: "Robotid w toku..." });
+  sendReport().then((result) => {
+    console.log("Robotid zakończony:", result);
+  });
+});
+//END-TASK 8 ------------------------------------------------------------
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
