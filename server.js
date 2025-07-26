@@ -6,6 +6,7 @@ import { censorship } from "./tasks/task5/task5.js";
 import { getFiles } from "./tasks/task6/task6.js";
 import { getCityName } from "./tasks/task7/task7.js";
 import { sendReport } from "./tasks/task8/task8.js";
+import { sendSeparateDifferentThemes } from "./tasks/task9/task9.js";
 const app = express();
 app.use(express.json());
 dotenv.config();
@@ -146,6 +147,18 @@ app.get("/robotid", (req, res) => {
   });
 });
 //END-TASK 8 ------------------------------------------------------------
+
+//TASK 9 ------------------------------------------------------------
+app.get("/separate-different-themes", (req, res) => {
+  res.json({
+    status: "processing",
+    message: "Separate different themes w toku...",
+  });
+  sendSeparateDifferentThemes().then((result) => {
+    console.log("Separate different themes zakończony:", result);
+  });
+});
+//END-TASK 9 ------------------------------------------------------------
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
