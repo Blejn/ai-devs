@@ -1,4 +1,4 @@
-import FirecrawlApp from "@mendable/firecrawl-js";
+/*import FirecrawlApp from "@mendable/firecrawl-js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -13,3 +13,4 @@ export const crawlResponse = await firecrawl.crawlUrl(url, {
     formats: ["markdown", "html"],
   },
 });
+*/
