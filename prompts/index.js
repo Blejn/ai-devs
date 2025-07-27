@@ -4,3 +4,4 @@ export * from "./prompt_task5.js";
 export * from "./prompt_task6.js";
 export * from "./prompt_task7.js";
 export * from "./prompt_task9.js";
+export * from "./prompt_task10.js";

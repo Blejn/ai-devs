@@ -7,6 +7,7 @@ import { getFiles } from "./tasks/task6/task6.js";
 import { getCityName } from "./tasks/task7/task7.js";
 import { sendReport } from "./tasks/task8/task8.js";
 import { sendSeparateDifferentThemes } from "./tasks/task9/task9.js";
+import { AnserTheQuestions } from "./tasks/task10/task10.js";
 const app = express();
 app.use(express.json());
 dotenv.config();
@@ -159,6 +160,15 @@ app.get("/separate-different-themes", (req, res) => {
   });
 });
 //END-TASK 9 ------------------------------------------------------------
+
+//TASK 10 ------------------------------------------------------------
+app.get("/arxiv", (req, res) => {
+  res.json({ status: "processing", message: "Arxiv w toku..." });
+  AnserTheQuestions().then((result) => {
+    console.log("Arxiv zakończony:", result);
+  });
+});
+//END-TASK 10 ------------------------------------------------------------
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
