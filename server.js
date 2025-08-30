@@ -8,6 +8,7 @@ import { getCityName } from "./tasks/task7/task7.js";
 import { sendReport } from "./tasks/task8/task8.js";
 import { sendSeparateDifferentThemes } from "./tasks/task9/task9.js";
 import { AnserTheQuestions } from "./tasks/task10/task10.js";
+import { sendMetadataRaports } from "./tasks/task11/index.js";
 const app = express();
 app.use(express.json());
 dotenv.config();
@@ -169,6 +170,19 @@ app.get("/arxiv", (req, res) => {
   });
 });
 //END-TASK 10 ------------------------------------------------------------
+app.get("/create-metadata-raports", (req, res) => {
+  res.json({ staus: "processing", message: " raports in progress" });
+  sendMetadataRaports().then((result) => {
+    console.log("raports zakończony:", result);
+  });
+});
+
+app.get("/generate-metadata-raports", (req, res) => {
+  res.json({ status: "processing", message: "raports in progress" });
+  sendMetadataRaports().then((result) => {
+    console.log("raports zakończony:", result);
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
